@@ -9,3 +9,5 @@ run link --->https://chatbot-t3y7.onrender.com
 
 
 
+uvicorn main:app --reload
+
