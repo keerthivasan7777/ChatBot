@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Add this CSS to styles.css or inside <style> tags */
+        .chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .chatbot-popup {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 350px;
+            height: 430px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            display: none; /* Initially hidden */
+            z-index: 1000;
+        }
+
+        .chatbot-popup iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <a href="#home">HOME</a> |
+                <a href="#menu">MENU</a> |
+                <a href="#location">LOCATION</a> |
+                <a href="#contactus">CONTACT US</a>
+            </nav>
+        </header>
+
+        <section id="home">
+            <img src="Foodi.png" alt="Banner Image">
+        </section>
+
+        <section id="menu">
+            <h2>Our Menu</h2>
+            <div class="food-gallery">
+                <div class="food-item">
+                    <img src="white_rice.jpg" alt="White Rice">
+                    <h2>White Rice</h2>
+                    <div class="price">₹45</div>
+                </div>
+                <div class="food-item">
+                    <img src="idly.jpg" alt="Idly">
+                    <h2>Idly</h2>
+                    <div class="price">₹25</div>
+                </div>
+                <div class="food-item">
+                    <img src="Dhosa.jpg" alt="Dosa">
+                    <h2>Dosa</h2>
+                    <div class="price">₹30</div>
+                </div>
+                <div class="food-item">
+                    <img src="vadai.jpg" alt="Sambar Vadai">
+                    <h2>Sambar Vadai</h2>
+                    <div class="price">₹10</div>
+                </div>
+                <div class="food-item">
+                    <img src="pongal.jpeg" alt="Pongal">
+                    <h2>Pongal</h2>
+                    <div class="price">₹30</div>
+                </div>
+                <div class="food-item">
+                    <img src="rava-dosa.jpg" alt="Rava Dosa">
+                    <h2>Rava Dosa</h2>
+                    <div class="price">₹35</div>
+                </div>
+                <div class="food-item">
+                    <img src="Onion-Dosa.jpg" alt="Onion Dosa">
+                    <h2>Onion Dosa</h2>
+                    <div class="price">₹40</div>
+                </div>
+                <div class="food-item">
+                    <img src="Veg_Mini_Meals.JPG" alt="Veg Mini Meals">
+                    <h2>Veg Mini Meals</h2>
+                    <div class="price">₹50</div>
+                </div>
+                <div class="food-item">
+                    <img src="mini-idli.jpg" alt="Mini Idly">
+                    <h2>Mini Idly</h2>
+                    <div class="price">₹20</div>
+                </div>
+                <div class="food-item">
+                    <img src="chapati.jpg" alt="Chappathi">
+                    <h2>Chappathi</h2>
+                    <div class="price">₹15</div>
+                </div>
+                <div class="food-item">
+                    <img src="poori-masala.jpg" alt="Poori">
+                    <h2>Poori</h2>
+                    <div class="price">₹25</div>
+                </div>
+                <div class="food-item">
+                    <img src="Curd_rice.jpg" alt="Curd Rise">
+                    <h2>Curd Rise</h2>
+                    <div class="price">₹30</div>
+                </div>
+                <div class="food-item">
+                    <img src="Tea.webp" alt="Tea">
+                    <h2>Tea</h2>
+                    <div class="price">₹11</div>
+                </div>
+                <div class="food-item">
+                    <img src="black_tea.jpg" alt="Black Tea">
+                    <h2>Black Tea</h2>
+                    <div class="price">₹11</div>
+                </div>
+                <div class="food-item">
+                    <img src="coffee.jpg" alt="Poori">
+                    <h2>Coffee</h2>
+                    <div class="price">₹15</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="location">
+            <h2>Location</h2>
+            <p>55/55, Ground Floor, Pillayar Koil Street, Triplicane, Chennai - 600 005.</p>
+        </section>
+
+        <section id="contactus">
+            <h2>Contact Us</h2>
+            <p>Got questions? Want to place an order? Call us at +919999999999 or email us at info@foodtimes.com</p>
+        </section>
+
+        <!-- Chatbot icon -->
+        <div class="chatbot-icon" onclick="toggleChatbot()">💬</div>
+
+        <!-- Chatbot popup -->
+        <div class="chatbot-popup" id="chatbotPopup">
+            <iframe allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/c8d68d10-7405-4595-83e4-99fa02944ab8"></iframe>
+        </div>
+    </div>
+        
+    <script>
+        function toggleChatbot() {
+            var popup = document.getElementById('chatbotPopup');
+            if (popup.style.display === 'none' || popup.style.display === '') {
+                popup.style.display = 'block';
+            } else {
+                popup.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
